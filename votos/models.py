@@ -35,7 +35,8 @@ class Candidato(models.Model):
     nombre = nombre= models.CharField(max_length= 200)
     distrito = models.ForeignKey(Distrito)
     
-
+    def __str__(self):
+        return self.nombre
 
     def count_voto(self):
         return Votos.objects.filter(voto=self).count()
@@ -48,6 +49,7 @@ class Votos(models.Model):
     forma la clase
     candidato : Hago una foreign key para decirle que los votos van a estar asignados a el candidato que yo quiero especificament
     voto : Es in Integer para que pueda escribir la cantidad de votos que saco cada candidato 
+    voto nulo: Es un Integer para escribir la cantidad de votos nulos que hubo
     distrito : Hago una foreign Key para saber de que distrito son los votos 
     """
     candidato = models.ForeignKey(Candidato)
