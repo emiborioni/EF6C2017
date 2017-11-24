@@ -55,3 +55,6 @@ class Votos(models.Model):
     candidato = models.ForeignKey(Candidato)
     voto = models.IntegerField(null=True)
     distrito = models.ForeignKey(Distrito)
+
+    def __str__(self):
+        return self.candidato 
